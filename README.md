@@ -1,5 +1,6 @@
 # pki-tools
-Docker image containing handy script for creating TLS keys
+Docker image containing handy script for creating TLS keys. These keys should be used for development purposes only
+
 
 # Creating TLS keys
 1. shell into container
