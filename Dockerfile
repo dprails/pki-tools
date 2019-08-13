@@ -31,13 +31,10 @@ RUN curl --silent https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-b
     cd awscli-bundle && \
     ./install -i /usr/local/aws -b /usr/local/bin/aws
 
-RUN mkdir -p /pki-tools
+RUN mkdir -p /pki-tools/pki-scripts
 
-# Install searchguard example-pki-scripts
-RUN curl --silent  https://dprails-utils.s3-us-west-2.amazonaws.com/example-pki-scripts.tgz -o /pki-tools/example-pki-scripts.tgz && \
-  cd /pki-tools && \
-  tar -xzf example-pki-scripts.tgz && \
-  rm -f example-pki-scripts.tgz
+# Install dprails pki-scripts
+COPY pki-scripts /pki-tools/pki-scripts/
 
 WORKDIR /pki-tools
 COPY create_pki_keys.sh /pki-tools/.
