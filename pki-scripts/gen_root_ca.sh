@@ -74,7 +74,7 @@ if [ ! -z "$JAVA_HOME" ]; then
     BIN_PATH="$JAVA_HOME/bin/keytool"
 fi
 
-# create the root-ca.pem
+# create the trustore.jks from root-ca
 cat ca/root-ca.pem | "$BIN_PATH" \
     -import \
     -v \

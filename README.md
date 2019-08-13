@@ -1,6 +1,8 @@
 # pki-tools
 Docker image containing handy script for creating TLS keys. These keys should be used for development purposes only
 
+# pki-scripts
+These scripts were shamelessly taken from https://github.com/floragunncom/search-guard-ssl/tree/master/example-pki-scripts
 
 # Creating TLS keys
 1. shell into container
