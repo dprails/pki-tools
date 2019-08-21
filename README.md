@@ -10,3 +10,6 @@ These scripts were shamelessly taken from https://github.com/floragunncom/search
 2. run script
 `# ./create_pki_keys.sh`
 3. keys created in  your host's $(pwd)/pki directory
+
+# some good explanation and examples here
+https://docs.confluent.io/3.0.0/kafka/ssl.html1
