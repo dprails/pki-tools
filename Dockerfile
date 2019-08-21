@@ -31,6 +31,10 @@ RUN curl --silent https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-b
     cd awscli-bundle && \
     ./install -i /usr/local/aws -b /usr/local/bin/aws
 
+# Install confluent kafka-generate-ssl.ssh
+RUN wget -q https://raw.githubusercontent.com/confluentinc/confluent-platform-security-tools/master/kafka-generate-ssl.sh && \
+    chmod +x kafka-generate-ssl.sh
+
 RUN mkdir -p /pki-tools/pki-scripts
 
 # Install dprails pki-scripts
