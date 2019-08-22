@@ -15,6 +15,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     net-tools \
     unzip \
     python \
+    vim \
 && rm -rf /var/lib/apt/lists/*
 
 # install openssl
@@ -31,10 +32,6 @@ RUN curl --silent https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-b
     cd awscli-bundle && \
     ./install -i /usr/local/aws -b /usr/local/bin/aws
 
-# Install confluent kafka-generate-ssl.ssh
-RUN wget -q https://raw.githubusercontent.com/confluentinc/confluent-platform-security-tools/master/kafka-generate-ssl.sh && \
-    chmod +x kafka-generate-ssl.sh
-
 RUN mkdir -p /pki-tools/pki-scripts
 
 # Install dprails pki-scripts
@@ -42,5 +39,7 @@ COPY pki-scripts /pki-tools/pki-scripts/
 
 WORKDIR /pki-tools
 COPY create_pki_keys.sh /pki-tools/.
+COPY kafka-generate-ssl.sh /pki-tools/.
+COPY kafka-generate-ssl-multiple-nodes.sh /pki-tools/.
 
 CMD ["/bin/bash","-l"]
