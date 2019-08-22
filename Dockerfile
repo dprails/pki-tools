@@ -15,6 +15,7 @@ RUN apt-get update -qq && apt-get install -qqy \
     net-tools \
     unzip \
     python \
+    vim \
 && rm -rf /var/lib/apt/lists/*
 
 # install openssl
@@ -39,7 +40,6 @@ COPY pki-scripts /pki-tools/pki-scripts/
 WORKDIR /pki-tools
 COPY create_pki_keys.sh /pki-tools/.
 COPY kafka-generate-ssl.sh /pki-tools/.
-COPY kafka-generate-ssl-auto-gen-passwords.sh /pki-tools/.
 COPY kafka-generate-ssl-multiple-nodes.sh /pki-tools/.
 
 CMD ["/bin/bash","-l"]
